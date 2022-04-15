@@ -49,43 +49,11 @@
         </div>
 <div class="d-flex mt-3" id="tasks-container">
 
-        <!-- <table class="table">
-            <thead style="font-size: 1.2em;">
-              <tr>
-                {% comment %} <th scope="col">#</th> {% endcomment %}
-                <th scope="col">TASK</th>
-                <th scope="col">DESCRIPTION</th>
-                {% comment %} <th scope="col">Time</th> {% endcomment %}
-                <th scope="col" style="float:right">ACTION</th>
-              </tr>
-            </thead>
-            <tbody>
-            {% for task in tasks %}
-              <tr>
-                {% comment %} <th scope="row">{{forloop.counter}}</th> {% endcomment %}
-                <td> <b> {{task.taskName}}</b></td>
-                <td>{{task.taskDesc}}</td>
-                {% comment %} <td>{{task.time}}</td> {% endcomment %}
-                <td>
-                  <div style="width:70px; height:25px; float:right; display: flex; justify-content: space-around;">
-                  <button class="" style="border: none; border-radius: 3px;"><a href = "{% url 'update' task.id %}"><i class="fa fa-edit" aria-hidden="true"></i>
-                  </a></button>
-
-                  <button class="" style="border: none; border-radius: 3px;  color:red;" ><a href = "{% url 'delete' task.id %}"><i class="fa fa-trash text-danger" aria-hidden="true"></i>
-                  </a></button>
-
-                </td>
-                  </div>
-              </tr>
-              <tr>
-            {% endfor %}
-            </tbody>
-          </table> -->
           {% for task in tasks %}
           <div class="card mx-2 my-2" id="tasks_card" style="width: 20rem;">
             <div class="card-body pb-1">
-              <h5 class="card-title">{{task.taskName}}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Normal</h6>
+              <h5 class="card-title mb-0">{{task.taskName}}</h5>
+              <h6 class="card-subtitle badge  mb-1 mt-0 text-muted" style="font-style: italic;">{{task.time}}</h6>
               <p class="card-text">{{task.taskDesc}}</p>
               <hr style="margin: 0; margin-bottom: .2rem;">
               <div class="d-flex " style="justify-content: space-between;">

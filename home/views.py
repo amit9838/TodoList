@@ -37,6 +37,7 @@ def task(request):
     try:
         allTasks = Task.objects.all()
         tasks = Task.objects.all()
+        
         count=0
         for task in tasks:
             count = count+1
