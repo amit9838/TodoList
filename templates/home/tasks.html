@@ -13,7 +13,15 @@
     flex-direction: column;
     /* background-color: aqua; */
     align-items: center;
+  }
 
+  #tasks_card {
+    background-color:#F7F5F2;
+  }
+
+  #button {
+    background-color:#557B83;
+    color: white;
   }
   
   @media(min-width: 768px) {
@@ -72,14 +80,15 @@
             </tbody>
           </table> -->
           {% for task in tasks %}
-          <div class="card mx-2 my-2" style="width: 18rem;">
-            <div class="card-body">
+          <div class="card mx-2 my-2" id="tasks_card" style="width: 20rem;">
+            <div class="card-body pb-1">
               <h5 class="card-title">{{task.taskName}}</h5>
               <h6 class="card-subtitle mb-2 text-muted">Normal</h6>
               <p class="card-text">{{task.taskDesc}}</p>
-              <div class="d-flex" style="justify-content: space-between;">
-                <a href = "{% url 'update' task.id %}" class="card-link btn btn-light"> <i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
-                <a href="{% url 'delete' task.id %}" class="card-link btn btn-light"> <i class="fa fa-trash text-danger" aria-hidden="true"></i>Delete</a>
+              <hr style="margin: 0; margin-bottom: .2rem;">
+              <div class="d-flex " style="justify-content: space-between;">
+                <a href = "{% url 'update' task.id %}" class="card-link btn btn-light" id="button"> <i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
+                <a href="{% url 'delete' task.id %}" class="card-link btn btn-light"  id="button"> <i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
               </div>
             </div>
           </div>
