@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}TODO-Tasks{% endblock title %}
+
+{% block head %}
+{% load static %}
+<link rel="stylesheet" href="{% static "home/tasks.css" %}">
+{% endblock head %}
+
+{% block content %}
+
+<div class="container">
+        <h1 class="text-center mt-4">Tasks</h1>
+        <div class="d-inline-flex" style="justify-content: space-between; width: 100%;">
+          <div>
+            <h5><span class="badge badge-secondary">(Total Task Added ={{status}})</span></h5>
+          </div>
+          <div class="" ">
+            <button class="btn " style="border: none; border-radius: 3px;"><a href = "/"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+              Add New</a></button>
+            </div>
+        </div>
+<div class="card">
+    <div class="card-body">
+        <table class="table">
+            <thead style="font-size: 1.2em;">
+              <tr>
+                {% comment %} <th scope="col">#</th> {% endcomment %}
+                <th scope="col">TASK</th>
+                <th scope="col">DESCRIPTION</th>
+                {% comment %} <th scope="col">Time</th> {% endcomment %}
+                <th scope="col" style="float:right">ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for task in tasks %}
+              <tr>
+                {% comment %} <th scope="row">{{forloop.counter}}</th> {% endcomment %}
+                <td> <b> {{task.taskName}}</b></td>
+                <td>{{task.taskDesc}}</td>
+                {% comment %} <td>{{task.time}}</td> {% endcomment %}
+                <td>
+                  <div style="width:70px; height:25px; float:right; display: flex; justify-content: space-around;">
+                  <button class="" style="border: none; border-radius: 3px;"><a href = "{% url 'update' task.id %}"><i class="fa fa-edit" aria-hidden="true"></i>
+                  </a></button>
+
+                  <button class="" style="border: none; border-radius: 3px;  color:red;" ><a href = "{% url 'delete' task.id %}"><i class="fa fa-trash text-danger" aria-hidden="true"></i>
+                  </a></button>
+
+                </td>
+                  </div>
+              </tr>
+              <tr>
+            {% endfor %}
+            </tbody>
+          </table>
+    </div>
+</div>   
+   
+      </div>
+{% endblock content %}

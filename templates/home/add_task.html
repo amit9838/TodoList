@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static "home/style.css" %}">
+ 
+{% endblock head %}
+
+{% block title %}TODO-Home{% endblock title %}
+
+{% block content %}
+<div class="main_container">
+
+{% if success == 2 %}
+  <div class="alert alert-success alert-dismissible fade show" role="alert" id = "alert">
+    <strong>Task Added!</strong> You can manage this task from <a href="/tasks"><strong>Tasks</strong> </a>.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" id = "dismiss_msg">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{% endif %}
+{% if success == 3 %}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert" id = "alert">
+    <strong>Task not Added!</strong> Can't add empty task!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" id = "dismiss_msg">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+ {% endif %}
+<div class="container">
+      <div class="container"> 
+        <h1 class="text-center text-light mt-4 h2 py-1">ADD NEW TASK</h1>
+          <div class="card mt-2">
+              <div class="card-body">
+                <form action="/" method="POST">
+                  {% csrf_token %}
+                    <div class="form-group">
+                      <label for="title">Task</label>
+                      <input type="text" class="form-control" id="title" name = "title" placeholder="">
+                    </div>
+        
+                    <div class="form-group">
+                      <label for="desc">Description</label>
+                      <textarea class="form-control" id="desc" name = "desc" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary my-2">Add</button>
+                  </form>
+              </div>
+          </div>
+       
+      </div>
+    </div>
+{% endblock content %}

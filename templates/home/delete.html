@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+          <h1 class="text-center text-light  bg-danger mt-4" style="border-radius: 5px;">Delete</h1>
+<div class="card">
+    <div class="card-body">
+      <h4>Delete <span>{{item}}</span>?</h4>
+
+      <div class="float-right" style="min-width: 120px;  width: 150px;  min-height: 30; height: 40px;" >
+      
+      <a class="btn btn-secondary float-right" href="/tasks" >Cancel</a>  
+
+
+      <form action="" method="POST">
+      	{% csrf_token %}
+      	<input class="btn btn-danger"  type="submit" name="conform" value="Yes"> 	
+      </form>
+ </div> 
+    </div>
+</div>       
+      </div>
+
+{% endblock content %}
+

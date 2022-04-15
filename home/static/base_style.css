@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
+
+body{
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+span {
+	/*background-color: grey;*/
+	border-radius: 5px;
+	/*color: white;*/
+	padding-left: 4px;
+	padding-right: 4px;
+	font-style: italic;
+	font-weight: bold;
+}
