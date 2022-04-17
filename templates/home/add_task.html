@@ -36,12 +36,12 @@
                   {% csrf_token %}
                     <div class="form-group">
                       <label for="title">Title</label>
-                      <input type="text" class="form-control" id="title" name = "title" placeholder="">
+                      <input type="text"  maxlength="200" class="form-control" id="title" name = "title" placeholder="">
                     </div>
         
                     <div class="form-group">
                       <label for="desc">Description</label>
-                      <textarea class="form-control" id="desc" name = "desc" rows="5"></textarea>
+                      <textarea maxlength="10000" class="form-control" id="desc" name = "desc" rows="5"></textarea>
                     </div>
                     <button type="submit" class="btn text-light my-2 float-right" style="background-color: #406882;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add</button>
                   </form>
