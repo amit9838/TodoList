@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}TODO-Tasks{% endblock title %}
+{% block title %}MARCA-TODO-Tasks{% endblock title %}
 
 {% block head %}
 {% load static %}
@@ -10,26 +10,44 @@
   
   #tasks-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     /* background-color: aqua; */
+    max-width: 100%;
+    /* min-width: 25rem; */
     align-items: center;
   }
 
   #tasks_card {
-    background-color:#F7F5F2;
-    min-width: 18rem;
+    background-color:#F7F7F7;
+    max-width: 100%;
+    min-width: 19.5rem;
+    border: none;
+    box-shadow: 0 0 .3rem rgba(0, 0, 0, 0.1);
   }
-
-  #button {
+  
+  #button-edit {
     background-color:#557B83;
     color: white;
   }
   
-  @media(min-width: 768px) {
-  #tasks-container {
-  flex-direction: row;
-}
+  #button-del {
+    background-color:#B8405E;
+    color: white;
+  }
+
+  @media(max-width: 768px) {
+    #tasks-container {
+      flex-direction: column;
+      width: 100vw;
+    }
+    
+    #tasks_card {
+    /* max-width: 98vw; */
+    min-width: 88vw;
+    
+   }
+
 }
 </style>
 {% endblock head %}
@@ -40,7 +58,7 @@
         <h1 class="text-center mt-4">Tasks</h1>
         <div class="d-inline-flex" style="justify-content: space-between; width: 100%;">
           <div>
-            <h5><span class="badge badge-secondary">(Total Task Added ={{status}})</span></h5>
+            <p><span class="btn bg-light" style="pointer-events: none;">Total tasks : {{status}}</span></p>
           </div>
           <div class="" ">
             <button class="btn " style="border: none; border-radius: 3px;"><a href = "/"><i class="fa fa-plus-circle" aria-hidden="true"></i>
@@ -50,15 +68,15 @@
 <div class="d-flex mt-3" id="tasks-container">
 
           {% for task in tasks %}
-          <div class="card mx-2 my-2" id="tasks_card" style="width: 20rem;">
-            <div class="card-body pb-1">
-              <h5 class="card-title mb-0">{{task.taskName}}</h5>
-              <h6 class="card-subtitle badge  mb-1 mt-0 text-muted" style="font-style: italic;">{{task.time}}</h6>
-              <pre class="card-text">{{task.taskDesc}}</pre>
+          <div class="card mx-2 my-2" id="tasks_card">
+            <div class="card-body p-1 px-2">
+              <h5 class="card-title mb-0 pl-1 py-1" style="border-radius: .2rem; border-left:.15rem solid rgb(192, 192, 192); background-color: rgb(232, 232, 232);">{{task.taskName}}</h5>
+              <h6 class="card-subtitle badge  mb-1 text-muted mt-0" style=" font-style: italic;">{{task.time}}</h6>
+              <pre class="text-dark">{{task.taskDesc}}</pre>
               <hr style="margin: 0; margin-bottom: .2rem;">
-              <div class="d-flex " style="justify-content: space-between;">
-                <a href = "{% url 'update' task.id %}" class="card-link btn btn-light" id="button"> <i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
-                <a href="{% url 'delete' task.id %}" class="card-link btn btn-light"  id="button"> <i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+              <div class="d-flex " style="justify-content: right;">
+                <a href = "{% url 'update' task.id %}" class="card-link btn btn-sm " id="button-edit"> <i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
+                <a href="{% url 'delete' task.id %}" class="card-link btn btn-sm"  id="button-del"> <i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
               </div>
             </div>
           </div>

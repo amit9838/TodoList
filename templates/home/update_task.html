@@ -21,9 +21,9 @@
 <div class="container">
 	
 
-          <h1 class="text-center text-light  bg-success mt-4" style="border-radius: 5px;">Update</h1>
+          <h1 class="text-center text-light mt-4 " style="border-radius: 5px; background-color: #146356;">Update</h1>
 <div class="card">
-    <div class="card-body">
+    <div class="card-body pb-0">
 
 		<form action="" method="POST">
                   {% csrf_token %}
@@ -36,7 +36,7 @@
                   <label for="desc">Description</label>
                   <textarea class="form-control" id="desc" name = "desc" rows="5">{{desc}}</textarea>
                 </div>
-                <button type="submit" class="btn btn-primary my-2" name="update">Update</button>
+                <button type="submit" class="btn btn-sm my-2 float-right text-light" style="background-color: #406882;" name="update">Update</button>
 	                
     	  </form>
     </div>

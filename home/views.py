@@ -74,3 +74,6 @@ def update(request, pk):
         return render(request, "home/update_task.html",context)
     except:
         return redirect('add_task')
+
+def about(request):
+    return render(request,"home/about.html")
