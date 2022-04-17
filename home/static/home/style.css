@@ -15,3 +15,8 @@ h1 {
 #dismiss_msg {
     position: absolute;
 }
+
+@media(max-width: 768px) {
+
+}
+}

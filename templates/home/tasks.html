@@ -42,6 +42,7 @@
       flex-direction: column;
       width: 100vw;
       justify-content: center;
+      align-items: center;
     }
     
     #tasks_card {
@@ -49,7 +50,6 @@
     min-width: 88vw;
     
    }
-
 }
 </style>
 {% endblock head %}
@@ -73,7 +73,7 @@
           {% for task in tasks %}
           <div class="card my-2" id="tasks_card">
             <div class="card-body p-1 px-2">
-              <h5 class="card-title mb-0 pl-1 py-1" style="border-radius: .2rem; border-left:.15rem solid rgb(192, 192, 192); background-color: rgb(232, 232, 232);">{{task.taskName}}</h5>
+              <h5 class="card-title mb-0 pl-1 py-1" style="border-radius: .2rem; border-left:.15rem solid rgb(192, 192, 192); background-color: rgb(232, 232, 232,.5);">{{task.taskName}}</h5>
               <h6 class="card-subtitle badge  mb-1 text-muted mt-0" style=" font-style: italic;">{{task.time}}</h6>
               <pre class="text-dark">{{task.taskDesc}}</pre>
               <hr style="margin: 0; margin-bottom: .2rem;">
