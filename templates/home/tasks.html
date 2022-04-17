@@ -10,6 +10,7 @@
   
   #tasks-container {
     display: flex;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
     /* background-color: aqua; */
@@ -65,10 +66,11 @@
               Add New</a></button>
             </div>
         </div>
-<div class="d-flex mt-3" id="tasks-container">
+
+      <div class="mt-3" id="tasks-container">
 
           {% for task in tasks %}
-          <div class="card mx-2 my-2" id="tasks_card">
+          <div class="card mr-1 my-2" id="tasks_card">
             <div class="card-body p-1 px-2">
               <h5 class="card-title mb-0 pl-1 py-1" style="border-radius: .2rem; border-left:.15rem solid rgb(192, 192, 192); background-color: rgb(232, 232, 232);">{{task.taskName}}</h5>
               <h6 class="card-subtitle badge  mb-1 text-muted mt-0" style=" font-style: italic;">{{task.time}}</h6>
