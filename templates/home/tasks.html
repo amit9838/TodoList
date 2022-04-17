@@ -54,7 +54,7 @@
             <div class="card-body pb-1">
               <h5 class="card-title mb-0">{{task.taskName}}</h5>
               <h6 class="card-subtitle badge  mb-1 mt-0 text-muted" style="font-style: italic;">{{task.time}}</h6>
-              <p class="card-text">{{task.taskDesc}}</p>
+              <pre class="card-text">{{task.taskDesc}}</pre>
               <hr style="margin: 0; margin-bottom: .2rem;">
               <div class="d-flex " style="justify-content: space-between;">
                 <a href = "{% url 'update' task.id %}" class="card-link btn btn-light" id="button"> <i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
