@@ -16,7 +16,12 @@ h1 {
     position: absolute;
 }
 
-@media(max-width: 768px) {
-
+#card {
+    border: none;
+    box-shadow: 0 0 .25rem rgba(1, 1, 1, 0.05);
 }
+
+
+@media(max-width: 768px) {
+    
 }

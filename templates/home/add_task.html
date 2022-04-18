@@ -30,7 +30,7 @@
 <div class="container">
       <div class="container"> 
         <h1 class="text-center text-light mt-4 h2 py-1">Create Task</h1>
-          <div class="card mt-2">
+          <div class="card mt-2" id="card">
               <div class="card-body pb-0">
                 <form action="/" method="POST">
                   {% csrf_token %}
@@ -43,7 +43,7 @@
                       <label for="desc">Description</label>
                       <textarea maxlength="10000" class="form-control" id="desc" name = "desc" rows="5"></textarea>
                     </div>
-                    <button type="submit" class="btn text-light my-2 float-right" style="background-color: #406882;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add</button>
+                    <button type="submit" class="btn text-light my-2 float-right" style="background-color: #406882;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create</button>
                   </form>
               </div>
           </div>

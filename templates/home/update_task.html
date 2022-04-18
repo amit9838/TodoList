@@ -4,6 +4,7 @@
 {% block head %}
 {% load static %}
 
+  <link rel="stylesheet" href="{% static "home/style.css" %}">
 {% endblock head %}
 
 {% block content %}
@@ -24,14 +25,12 @@
     </button>
   </div>
  {% endif %}
-<div class="container">
-	
-
+        <div class="container">
           <h1 class="text-center text-light mt-4 " style="border-radius: 5px; background-color: #146356;">Update</h1>
-<div class="card">
-    <div class="card-body pb-0">
+              <div class="card" id="card">
+                <div class="card-body pb-0">
 
-		<form action="" method="POST">
+                <form action="" method="POST">
                   {% csrf_token %}
                 <div class="form-group">
                   <label for="title">Task</label>

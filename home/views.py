@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import render,redirect
 from django.http import HttpResponse ,HttpResponseRedirect
 from home.models import Task
@@ -73,7 +74,18 @@ def update(request, pk):
 
         return render(request, "home/update_task.html",context)
     except:
-        return redirect('add_task')
+        return redirect('tasks')
+
+
+def view_task(request, pk):
+    try:
+        item = Task.objects.get(id=pk)
+        context = {'title':item.taskName, "desc":item.taskDesc, "time":item.time, 'id':pk}
+        return render(request, "home/view_task.html",context)
+
+    except:
+        return redirect('tasks')
+
 
 def about(request):
     return render(request,"home/about.html")
