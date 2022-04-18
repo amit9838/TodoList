@@ -8,16 +8,16 @@
           <h1 class="text-center text-light  mt-4" style="background-color: #B8405E; border-radius: 5px;">Delete</h1>
 <div class="card">
     <div class="card-body">
-      <h4>Delete <span>{{item}}</span>?</h4>
+      <h5>Delete <span>{{task}}</span>?</h5>
 
       <div class="float-right" style="min-width: 120px;  width: 150px;  min-height: 30; height: 40px;" >
       
-      <a class="btn btn-secondary float-right btn-sm" href="/tasks" >Cancel</a>  
+      <a class="btn btn-secondary float-right btn-sm" href="{% url 'view_task' task.id %}" >Cancel</a>  
 
 
       <form action="" method="POST">
       	{% csrf_token %}
-      	<input class="btn btn-sm text-light" style="background-color: #B8405E;" type="submit" name="conform" value="Yes"> 	
+      	<input class="btn btn-sm text-light" style="background-color: #B8405E; width: 3.5rem;" type="submit" name="conform" value="Yes"> 	
       </form>
  </div> 
     </div>

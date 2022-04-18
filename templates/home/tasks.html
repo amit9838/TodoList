@@ -32,8 +32,8 @@
     /* background-color: antiquewhite; */
     padding-left: .3rem;
     padding-top: .3rem;
-    padding-bottom: .3rem;
-    height: 7rem;
+    /* padding-bottom: .3rem; */
+    height: 7.5rem;
     overflow: hidden;
     font-size: .9rem;
   }
@@ -103,7 +103,7 @@
 
                 <hr style="margin: 0; margin-bottom: .2rem;">
                 <div class="d-flex " style="justify-content: space-between  ;">
-                  <span class="card-subtitle badge  mb-1 text-muted mt-0" style=" font-style: italic;">{{task.time}}</span>
+                  <span class="card-subtitle badge  mb-1 text-muted mt-0">{{task.time}}</span>
                   <a href = "{% url 'view_task' task.id %}" class="card-link " id="button-view">VIEW <i class="fa-solid fa-caret-right"></i></a>
                   <!-- <a href="{% url 'delete' task.id %}" class="card-link btn btn-sm"  id="button-del"> <i class="fa fa-trash" aria-hidden="true"></i> Delete</a> -->
                 </div>

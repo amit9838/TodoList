@@ -54,7 +54,7 @@ def delete(request,pk):
             obj.delete()
             return task(request)
 
-        context = {'item' : obj}
+        context = {'task' : obj}
         return render(request, "home/delete.html",context)
     except:
         return redirect('add_task')
