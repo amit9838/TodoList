@@ -70,11 +70,15 @@
           <div class="card my-2" id="tasks_card">
             <div class="card-body p-1 px-2" style="width: 100%;">
               <div class="title d-flex" style="justify-content: space-between; border-radius: .2rem; border-left:.15rem solid rgb(192, 192, 192); background-color: rgb(232, 232, 232,.5);">
-                <span class="card-title mb-0 pl-1 py-1">{{title}}</span>
-                <span class="btn btn-secondary btn-sm d-flex" style="height: 1.5rem; margin-top :.25rem; justify-content: center; align-items: center;" onclick="downloadFile()" >
-                  
-                  <i class="fa-solid fa-download"></i>
-                </span>
+                <span class="card-title mb-0 pl-1 py-1" id="title" >{{title}}</span>
+                <div class="actions d-flex">
+                  <span class="btn btn-secondary btn-sm d-flex mr-2" style="height: 1.5rem; margin-top :.25rem; justify-content: center; align-items: center;" onclick="copyText()" >
+                    <i class="fa-regular fa-clipboard"></i>
+                  </span>
+                  <span class="btn btn-secondary btn-sm d-flex" style="height: 1.5rem; margin-top :.25rem; justify-content: center; align-items: center;" onclick="downloadFile()" >
+                    <i class="fa-solid fa-download"></i>
+                  </span>
+                </div>
               </div>
               <h6 class="card-subtitle badge  mb-1 text-muted mt-0" style=" font-style: italic;">{{time}}</h6>
               <pre class="text-dark" id="task_description" >{{desc}}</pre>
@@ -92,6 +96,7 @@
 </div>
 
 <script>
+  let title = document.getElementById("title").outerText;
   let desc = document.getElementById("task_description").outerText;
   data = JSON.stringify(desc,undefined,2)
   console.log(desc);
@@ -100,13 +105,19 @@
 
 var hiddenElement = document.createElement('a');
 
-hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
+hiddenElement.href = 'data:attachment/text,' + encodeURIComponent(textToSave);
 hiddenElement.target = '_blank';
-hiddenElement.download = 'myFile.txt';
+hiddenElement.download = title.substring(0,15)+'.txt';
 
 function downloadFile(){
   hiddenElement.click();
 }
+function copyText(){
+  navigator.clipboard.writeText(desc);
+  
+}
+
+
 
 </script>
 {% endblock content %}
